@@ -1,8 +1,7 @@
-package ru.netology.Exceptions.manager;
+package ru.netology.manager;
 
-import ru.netology.Exceptions.NotFoundException;
-import ru.netology.Exceptions.repository.ProductRepository;
-import ru.netology.Product;
+import ru.netology.repository.ProductRepository;
+import ru.netology.domain.Product;
 
 public class ProductManager {
     private ProductRepository repository;

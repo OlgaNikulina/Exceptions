@@ -1,9 +1,9 @@
-package ru.netology.Exceptions.repository;
+package ru.netology.repository;
 
 import org.junit.jupiter.api.Test;
-import ru.netology.Exceptions.NotFoundException;
-import ru.netology.Exceptions.manager.ProductManager;
-import ru.netology.Product;
+import ru.netology.exception.NotFoundException;
+import ru.netology.manager.ProductManager;
+import ru.netology.domain.Product;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -13,7 +13,7 @@ class ProductRepositoryTest {
 
     private Product first = new Product(1, "first", 500);
     private Product second = new Product(2, "second", 550);
-    private Product third = new Product(3, "third", 4500);
+    private Product third = new Product(3, "third", 450);
 
     @Test
     void shouldSaveOneItem() {
@@ -47,36 +47,9 @@ class ProductRepositoryTest {
         manager.add(first);
         manager.add(second);
         manager.add(third);
-        try {
-            System.out.println("Element with id: ");
-            repository.removeById(idToRemove);
-            System.out.println("+");
-        }
-        catch (NotFoundException e){
-            System.out.println(2);
-        }
-        finally {
-            System.out.println(" not found");
-        }
-
+        repository.removeById(idToRemove);
         Product[] expected = new Product[]{first, second, third};
         Product[] actual = repository.findAll();
-
         assertArrayEquals(expected, actual);
-
-    }
-
-    @Test
-    public void shouldThrowRuntimeException(){
-        assertThrows(RuntimeException.class), () -> repository.throwRuntimeException();
-    }
-
-    @Test
-    public void shouldThrowNotFoundException(){
-        assertThrows(NotFoundException.class), -> try {
-            repository.throwNotFoundException();
-        } catch (NotFoundException e) {
-            e.printStackTrace();
-        };
     }
 }

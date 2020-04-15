@@ -1,8 +1,8 @@
-package ru.netology.Exceptions.manager;
+package ru.netology.manager;
 
 import org.junit.jupiter.api.Test;
-import ru.netology.Exceptions.repository.ProductRepository;
-import ru.netology.Product;
+import ru.netology.repository.ProductRepository;
+import ru.netology.domain.Product;
 
 import static org.junit.jupiter.api.Assertions.*;
 

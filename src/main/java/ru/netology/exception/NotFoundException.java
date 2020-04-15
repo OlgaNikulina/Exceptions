@@ -1,13 +1,8 @@
-package ru.netology.Exceptions;
+package ru.netology.exception;
 
 public class NotFoundException extends RuntimeException {
 
     public NotFoundException() {
-    }
-
-    @Override
-    public String toString() {
-        return "NotFoundException{} " + super.toString();
     }
 
     public NotFoundException(String message) {
@@ -24,8 +19,5 @@ public class NotFoundException extends RuntimeException {
 
     public NotFoundException(String message, Throwable cause, boolean enableSuppression, boolean writableStackTrace) {
         super(message, cause, enableSuppression, writableStackTrace);
-    }
-
-    public void printStackTrace() {
     }
 }
