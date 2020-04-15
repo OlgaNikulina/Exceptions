@@ -43,14 +43,9 @@ class ProductRepositoryTest {
     @Test
     public void shouldNotRemoveIfNotExists() {
         int idToRemove = 4;
-
         manager.add(first);
         manager.add(second);
         manager.add(third);
-        repository.removeById(idToRemove);
-        Product[] expected = new Product[]{first, second, third};
-        Product[] actual = assertThrows(NotFoundException.class, () -> repository.removeById(idToRemove));
-        assertArrayEquals(expected, actual);
-
+        assertThrows(NotFoundException.class, () -> repository.removeById(idToRemove));
     }
 }
