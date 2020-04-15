@@ -49,7 +49,8 @@ class ProductRepositoryTest {
         manager.add(third);
         repository.removeById(idToRemove);
         Product[] expected = new Product[]{first, second, third};
-        Product[] actual = repository.findAll();
+        Product[] actual = assertThrows(NotFoundException.class, () -> repository.removeById(idToRemove));
         assertArrayEquals(expected, actual);
+
     }
 }
